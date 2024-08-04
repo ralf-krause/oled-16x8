@@ -1,5 +1,7 @@
 /**
  * Provides functions to control an OLED 0.96" from a Calliope Mini.
+ * 
+ * The functions should work with the display controllers SSD1306 and SSD1315 
  */
 
 // Maincode from https://github.com/Banbury/pxt-calliope-oled96
