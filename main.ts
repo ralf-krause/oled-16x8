@@ -63,8 +63,8 @@ namespace oled_16x8 {
                 writeChar(' ');
             }
         }
+        setCursor(0, 0);
         cmd(DISPLAY_ON);    //display on
-        setTextXY(0, 0);
     }
 
     /**
