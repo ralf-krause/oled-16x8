@@ -58,9 +58,9 @@ namespace oled_16x8 {
     export function clearDisplay() {
         cmd(DISPLAY_OFF);   //display off
         for (let j = 0; j < 8; j++) {
-            setTextXY(j, 0);
+            setCursor(j, 0);
             for (let i = 0; i < 16; i++) { //clear all columns
-                putChar(' ');
+                writeChar(' ');
             }
         }
         cmd(DISPLAY_ON);    //display on
@@ -76,7 +76,7 @@ namespace oled_16x8 {
     //% block="lösche %n| Zeichen"
     export function clearRange(n: number) {
         for (let i = 0; i < n; i++) {
-            putChar(' ');
+            writeChar(' ');
         }
     }
 
@@ -141,7 +141,7 @@ namespace oled_16x8 {
     //% blockId=oled_16x8_write_number
     //% block="schreibe Zahl %n|auf das Display"
     export function writeNumber(n: number) {
-        oledssd1306.writeString("" + n)
+        oled_16x8.writeString("" + n)
    }
 
     /**
