@@ -141,8 +141,8 @@ namespace oled_16x8 {
     //% blockId=oled_16x8_write_number
     //% block="schreibe Zahl %n|auf das Display"
     export function writeNumber(n: number) {
-        oled_16x8.writeString("" + n)
-   }
+        writeString("" + n)
+    }
 
     /**
      * Ändert das Display zu weißer Schrift auf schwarzem Hintergrund.
