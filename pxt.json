@@ -1,7 +1,7 @@
 {
-    "name": "pxt-oled-ssd1306",
-    "version": "1.0.1",
-    "description": "Driver for I2C SSD1306 OLED-Displays with german Characters extension",
+    "name": "oled-16x8",
+    "version": "1.0.2",
+    "description": "Blocks for oled displays with SSD1306 and SSD1315 using german character extension",
     "dependencies": {
         "core": "*"
     },
@@ -14,7 +14,8 @@
     ],
     "public": false,
     "supportedTargets": [
-        "calliopemini"
+        "calliopemini",
+        "microbit"
     ],
     "preferredEditor": "tsprj",
     "yotta": {
