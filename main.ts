@@ -169,11 +169,12 @@ namespace oled_16x8 {
     //% block="drehe Display"
     export function flipScreen() {
         cmd(DISPLAY_OFF);
-        cmd(COM_SCAN_INC);
         if (flipped) {
+            cmd(COM_SCAN_DEC);
             cmd(0xA1);  // Set Segment Re-Map
             flipped = false;
         } else {
+            cmd(COM_SCAN_INC);
             cmd(0xA0);
             flipped = true;
         }
