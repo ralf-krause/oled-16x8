@@ -175,7 +175,7 @@ namespace oled_16x8 {
             flipped = false;
         } else {
             cmd(COM_SCAN_INC);
-            cmd(0xA0);
+            cmd(0xA0);  // Set Segment Re-Map
             flipped = true;
         }
         cmd(DISPLAY_ON);
