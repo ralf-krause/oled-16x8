@@ -1,0 +1,20 @@
+{
+  "oled_16x8.clearDisplay|block": "clear display",
+  "oled_16x8.clearRange|block": "clear %n characters",
+  "oled_16x8.cmd|block": "send command %c|to the display",
+  "oled_16x8.flipDisplay|block": "flip display",
+  "oled_16x8.initDisplay|block": "initialize display",
+  "oled_16x8.invertDisplay|block": "black on white",
+  "oled_16x8.normalDisplay|block": "white on black",
+  "oled_16x8.setBrightness|block": "set brightness to %brightness",
+  "oled_16x8.setCursor|block": "set cursor to|row %row|and column %column",
+  "oled_16x8.turnOff|block": "turn display off",
+  "oled_16x8.turnOnOff|block": "turn display %mode",
+  "oled_16x8.turnOn|block": "turn display on",
+  "oled_16x8.writeCustomChar|block": "write custom char %c",
+  "oled_16x8.writeData|block": "send byte %n|to the display",
+  "oled_16x8.writeNumber|block": "write number %n|to the display",
+  "oled_16x8.writeString|block": "write text %s|to the display",
+  "oled_16x8|block": "OLED 16x8",
+  "{id:category}Oled_16x8": "Oled_16x8"
+}
