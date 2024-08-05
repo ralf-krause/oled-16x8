@@ -1,0 +1,22 @@
+{
+  "oled_16x8": "Provides functions to control an OLED 0.96\" from a Calliope Mini.\nThe functions should work with the display controllers SSD1306 and SSD1315 \n*",
+  "oled_16x8.clearDisplay": "Clear the whole display.",
+  "oled_16x8.clearRange": "Clear a range of characters\nstarting at the cursor position.",
+  "oled_16x8.clearRange|param|n": "Number of characters to delete",
+  "oled_16x8.cmd": "Send a command to the display.\nOnly use this if you know what you are doing.",
+  "oled_16x8.flipDisplay": "Flip the display content upside down.",
+  "oled_16x8.initDisplay": "Reset and clear the display.\nShould be used at the start of the program.",
+  "oled_16x8.invertDisplay": "Invert display to black letters on white background.",
+  "oled_16x8.normalDisplay": "Set display to white letters on black background.",
+  "oled_16x8.setBrightness": "Set the brightness of the display.",
+  "oled_16x8.setBrightness|param|brightness": "Values range from 0 to 255, eg: 127",
+  "oled_16x8.setCursor": "Move the cursor to a new position.",
+  "oled_16x8.turnOff": "Turn off the display.",
+  "oled_16x8.turnOn": "Turn on the display.",
+  "oled_16x8.turnOnOff": "Turn the display on and off.",
+  "oled_16x8.turnOnOff|param|mode": "Value on and off",
+  "oled_16x8.writeCustomChar": "Write a custom character to the display at the cursor position.\nA character is a string of 8 bytes. \nEach byte represents a line of the character. \nThe bits of each byte represent the pixels of a line of the character.\nEx. \"\\x00\\xFF\\x81\\x81\\x81\\xFF\\x00\\x00\"\nOnly use in Javascript mode! Makecode adds extra backslashes in Block mode.",
+  "oled_16x8.writeData": "Write a byte to the display.\nCould be used to directly paint to the display.",
+  "oled_16x8.writeNumber": "Write a number to the display at the current cursor position.",
+  "oled_16x8.writeString": "Write a string to the display starting at the cursor position."
+}
