@@ -15,9 +15,9 @@
 // MIT License Copyright (c) 2019 Michael Klein
 //
 // Changes by Ralf Krause 20240805
-// Rewrited initDisplay and writeChar
-// Added flipDisplay and setBrightness 
-// Added language settings (en, de)
+// Changed initDisplay and writeChar
+// Added new flipDisplay and setBrightness 
+// Added new language settings (en, de)
 // https://github.com/ralf-krause/display-oled-16x8
 // MIT License Copyright (c) 2024 Ralf Krause
 
@@ -207,7 +207,7 @@ namespace oled_16x8 {
      */
     //% blockId=oled96_set_brightness advanced=true weight=80
     //% brightness.min=0 brightness.max=255
-    //% block="set brightness|to %brightness"
+    //% block="set brightness to %brightness"
     export function setBrightness(brightness: number) {
         let b = brightness
         if (b < 0) {b = 0;}
@@ -223,7 +223,7 @@ namespace oled_16x8 {
     //% blockId=oled_16x8_turn_off advanced=true weight=90
     //% block="turn display %mode"
     //% mode.shadow="OnOff"
-    export function turnOnOff(mode: OnOff) {
+    turnOnOff(mode: OnOff) {
         if (mode = OnOff.On) {
             cmd(DISPLAY_ON);
         } else {
@@ -234,18 +234,18 @@ namespace oled_16x8 {
     /**
      * Turn off the display.
      */
-    //% blockId=oled_16x8_turn_off advanced=true
+    //% blockId=oled_16x8_turn_off advanced=true weight=94
     //% block="turn display off"
-    function turnOff() {
+    export function turnOff() {
         cmd(DISPLAY_OFF);
     }
 
     /**
      * Turn on the display.
      */
-    //% blockId=oled_16x8_turn_on advanced=true
+    //% blockId=oled_16x8_turn_on advanced=true weight=95
     //% block="turn display on"
-    function turnOn() {
+    export function turnOn() {
         cmd(DISPLAY_ON);
     }
 
