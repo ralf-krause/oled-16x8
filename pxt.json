@@ -1,7 +1,7 @@
 {
     "name": "oled-16x8",
     "version": "1.0.2",
-    "description": "Makecode extension for OLED displays with SSD1306 and SSD1315. Provides german characters ÄÖÜäöüß",
+    "description": "Blocks for OLED displays with SSD1306/SSD1315. Providing german characters ÄÖÜäöüß",
     "dependencies": {
         "core": "*"
     },
