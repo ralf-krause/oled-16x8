@@ -13,6 +13,7 @@
 // Thanks to Michael Klein for the German version
 // https://github.com/MKleinSB/pxt-OLED-SSD1306
 // MIT License Copyright (c) 2019 Michael Klein
+//
 // Changes by Ralf Krause 20240805
 // Rewrited initDisplay and writeChar
 // Added flipDisplay and setBrightness 
@@ -73,7 +74,7 @@ namespace oled_16x8 {
     /**
      * Clear the whole display.
      */
-    //% blockId=oled_16x8_clear_display
+    //% blockId=oled_16x8_clear_display weight=40
     //% block="clear display"
     export function clearDisplay() {
         cmd(DISPLAY_OFF);   //display off
@@ -91,8 +92,8 @@ namespace oled_16x8 {
      * Clear a range of characters starting at the cursor position.
      * @param n Number of characters to delete
      */
-    //% blockId=oled_16x8_clear_range
-    //% block="clear %n|characters"
+    //% blockId=oled_16x8_clear_range weight=30
+    //% block="clear %n characters"
     export function clearRange(n: number) {
         for (let i = 0; i < n; i++) {
             writeChar(' ');
@@ -104,7 +105,7 @@ namespace oled_16x8 {
      */
     //% row.min=0 row.max=7 
     //% column.min=0 column.max=15
-    //% blockId=oled_16x8_set_cursor
+    //% blockId=oled_16x8_set_cursor weight=50
     //% block="set cursor to|row %row|and column %column"
     export function setCursor(row: number, column: number) {
         let r = row;
@@ -138,7 +139,7 @@ namespace oled_16x8 {
                 case 223: writeCustomChar(extendedChar[6]); break; //ß
                 case 172: writeCustomChar(extendedChar[7]); break; //€
                 case 176: writeCustomChar(extendedChar[8]); break; //°
-                default:  writeCustomChar(extendedChar[9]); // all other
+                default:  writeCustomChar(extendedChar[9]); // other
             }
         }
     }
@@ -146,8 +147,8 @@ namespace oled_16x8 {
     /**
      * Write a string to the display starting at the cursor position.
      */
-    //% blockId=oled_16x8_write_string
-    //% block="write text %s|to the display"
+    //% blockId=oled_16x8_write_string weight=80
+    //% block="write text %s to the display"
     export function writeString(s: string) {
         for (let c of s) {
             writeChar(c);
@@ -157,8 +158,8 @@ namespace oled_16x8 {
     /**
      * Write a number to the display at the current cursor position.
      */
-    //% blockId=oled_16x8_write_number
-    //% block="write number %n|to the display"
+    //% blockId=oled_16x8_write_number weight=90
+    //% block="write number %n to the display"
     export function writeNumber(n: number) {
         writeString("" + n)
     }
@@ -166,7 +167,7 @@ namespace oled_16x8 {
     /**
      * Set display to white letters on black background.
      */
-    //% blockId=oled_16x8_normal_display advanced=true
+    //% blockId=oled_16x8_normal_display advanced=true weight=60
     //% block="white on black"
     export function normalDisplay() {
         cmd(NORMAL_DISPLAY);
@@ -175,7 +176,7 @@ namespace oled_16x8 {
     /**
      * Invert display to black letters on white background.
      */
-    //% blockId=oled_16x8_invert_display advanced=true
+    //% blockId=oled_16x8_invert_display advanced=true weight=50
     //% block="black on white"
     export function invertDisplay() {
         cmd(INVERT_DISPLAY);
@@ -184,7 +185,7 @@ namespace oled_16x8 {
     /**
      * Flip the display content upside down.
      */
-    //% blockId=oled_16x8_flip_screen advanced=true
+    //% blockId=oled_16x8_flip_screen advanced=true weight=70
     //% block="flip display"
     export function flipDisplay() {
         cmd(DISPLAY_OFF);
@@ -202,9 +203,9 @@ namespace oled_16x8 {
 
     /**
      * Set the brightness of the display. 
-     * @param brightness Values range from 0 to 255, eg: 127
+     * @param brightness Values range from 0 to 255, eg: 200
      */
-    //% blockId=oled96_set_brightness
+    //% blockId=oled96_set_brightness advanced=true weight=80
     //% brightness.min=0 brightness.max=255
     //% block="set brightness|to %brightness"
     export function setBrightness(brightness: number) {
@@ -235,7 +236,7 @@ namespace oled_16x8 {
      */
     //% blockId=oled_16x8_turn_off advanced=true
     //% block="turn display off"
-    export function turnOff() {
+    function turnOff() {
         cmd(DISPLAY_OFF);
     }
 
@@ -244,7 +245,7 @@ namespace oled_16x8 {
      */
     //% blockId=oled_16x8_turn_on advanced=true
     //% block="turn display on"
-    export function turnOn() {
+    function turnOn() {
         cmd(DISPLAY_ON);
     }
 
@@ -256,7 +257,7 @@ namespace oled_16x8 {
      * Ex. "\x00\xFF\x81\x81\x81\xFF\x00\x00"
      * Only use in Javascript mode! Makecode adds extra backslashes in Block mode.
      */
-    //% blockId=oled_16x8_write_custom_char advanced=true
+    //% blockId=oled_16x8_write_custom_char advanced=true weight=10
     //% block="write custom char %c"
     export function writeCustomChar(c: string) {
         for (let i = 0; i < 8; i++) {
@@ -273,7 +274,7 @@ namespace oled_16x8 {
      */
     //% blockId=oled96_send_command
     //% block="send command %c|to display"
-    //% blockId=oled_16x8_send_command advanced=true
+    //% blockId=oled_16x8_send_command advanced=true weight=30
     //% block="send command %c|to display"
     export function cmd(c: number) {
         pins.i2cWriteNumber(0x3c, c, NumberFormat.UInt16BE);
@@ -283,7 +284,7 @@ namespace oled_16x8 {
      * Write a byte to the display.
      * Could be used to directly paint to the display.
      */
-    //% blockId=oled_16x8_write_data advanced=true
+    //% blockId=oled_16x8_write_data advanced=true weight=20
     //% block="send byte %n|to display"
     export function writeData(n: number) {
         let b = n;
