@@ -1,0 +1,20 @@
+{
+  "oled_16x8.clearDisplay|block": "lösche Display",
+  "oled_16x8.clearRange|block": "lösche %n Zeichen",
+  "oled_16x8.cmd|block": "sende Befehl %c|an das Display",
+  "oled_16x8.flipScreen|block": "drehe Display",
+  "oled_16x8.initDisplay|block": "initialisiere Display",
+  "oled_16x8.invertDisplay|block": "schwarz auf weiß",
+  "oled_16x8.normalDisplay|block": "weiß auf schwarz",
+  "oled_16x8.setBrightness|block": "setze Helligkeit auf %brightness",
+  "oled_16x8.setCursor|block": "setze Cursor auf |Zeile %row| und Spalte %column",
+  "oled_16x8.turnOnOff|block": "schalte Display %mode",
+  "oled_16x8.turnOff|block": "schalte Display aus",
+  "oled_16x8.turnOn|block": "schalte Display ein",
+  "oled_16x8.writeCustomChar|block": "schreibe eigenes Zeichen %c",
+  "oled_16x8.writeData|block": "sende Byte %n|an das Display",
+  "oled_16x8.writeNumber|block": "schreibe Zahl %n|auf das Display",
+  "oled_16x8.writeString|block": "schreibe Text %s|auf das Display",
+  "oled_16x8|block": "OLED 16x8",
+  "{id:category}Oled_16x8": "Oled_16x8"
+}
