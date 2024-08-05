@@ -1,0 +1,22 @@
+{
+  "oled_16x8": "Blöcke zur Steuerung eines OLED-Displays 0.96\" mit dem Calliope Mini.\nDie Funktionen sollten mit allen Displays mit SSD1306 und SSD1315 arbeiten.",
+  "oled_16x8.clearDisplay": "Löscht das gesamte Display.",
+  "oled_16x8.clearRange": "Löscht einen Buchstabenbereich \nbeginnend an der Cursorposition.",
+  "oled_16x8.clearRange|param|n": "Anzahl von Zeichen zum Löschen",
+  "oled_16x8.cmd": "Sendet einen Befehl an das Display.\nNur verwenden, wenn du weißt was du tust!",
+  "oled_16x8.flipScreen": "Dreht den Displayinhalt auf den Kopf.",
+  "oled_16x8.initDisplay": "Setzt das Display zurück und löscht alles.\nSollte beim Start des Programms verwendet werden.",
+  "oled_16x8.invertDisplay": "Ändert das Display zu schwarzer Schrift auf weißem Hintergrund.",
+  "oled_16x8.normalDisplay": "Ändert das Display zu weißer Schrift auf schwarzem Hintergrund.",
+  "oled_16x8.setBrightness": "Ändert die Helligkeit des Displays.",
+  "oled_16x8.setBrightness|param|brightness": "Wertebereich von 0 bis 255, eg: 200",
+  "oled_16x8.setCursor": "Bewegt den Cursor an eine neue Position.",
+  "oled_16x8.turnOff": "Schaltet das Display aus.",
+  "oled_16x8.turnOn": "Schaltet das Display ein.",
+  "oled_16x8.turnOnOff": "Schaltet das Display ein und aus.",
+  "oled_16x8.turnOnOff|param|mode": "Wert ein und aus",
+  "oled_16x8.writeCustomChar": "Write a custom character to the display at the cursor position.\nA character is a string of 8 bytes. \nEach byte represents a line of the character. \nThe bits of each byte represent the pixels of a line of the character.\nEx. \"\\x00\\xFF\\x81\\x81\\x81\\xFF\\x00\\x00\"\nOnly use in Javascript mode! Makecode adds extra backslashes in Block mode.",
+  "oled_16x8.writeData": "Schreibt ein Byte auf das Display.\nKann verwendet werden, um das Display direkt zu beschreiben.",
+  "oled_16x8.writeNumber": "Schreibt eine Zahl an der aktuellen Cursorposition auf das Display.",
+  "oled_16x8.writeString": "Schreibt einen String an der aktuellen Cursorposition auf das Display."
+}
