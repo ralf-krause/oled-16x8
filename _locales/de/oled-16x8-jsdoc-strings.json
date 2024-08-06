@@ -9,7 +9,7 @@
   "oled_16x8.setBrightness": "Ändere die Helligkeit des Displays.",
   "oled_16x8.setBrightness|param|brightness": "Werte im Bereich von 0 bis 255, eg: 200",
   "oled_16x8.setCursor": "Bewege den Cursor an eine neue Stelle.",
-  "oled_16x8.setDisplaymode": "Setze den Displaymodus "weiße Schrift auf schwarzem Hintergrund" und umgekehrt.",
+  "oled_16x8.setDisplaymode": "Setze den Displaymodus 'weiße Schrift auf schwarzem Hintergrund' und umgekehrt.",
   "oled_16x8.turnOnOffDisplay": "Schalte das Display ein und aus.",
   "oled_16x8.writeCustomChar": "Schreibe ein eigenes Zeichen an der Cursorposition auf das Display.\nEin Zeichen setzt sich aus 8 Bytes zusammen.\nJedes Byte stellt eine Zeile im Zeichen dar.\nDie einzelnen Bits in jedem Byte sind die Pixel in einer Zeile des Zeichens.\nz.B. \"\\x00\\xFF\\x81\\x81\\x81\\xFF\\x00\\x00\"\nNur verwenden im Javascript mode! Makecode fügt im Block mode zusätzliche Backslashes ein.",
   "oled_16x8.writeData": "Sende ein Datenbyte an das Display.\nDas könnte verwendet werden, um direkt auf das Display zu malen.",
