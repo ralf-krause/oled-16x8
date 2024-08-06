@@ -1,9 +1,9 @@
 /**
- * Provides functions to control an OLED 0.96" from a Calliope Mini.
- * The functions should work with the display controllers SSD1306 and SSD1315 
+ * Blocks to control an OLED display from a Calliope mini.
+ * The functions should work with the display controllers SSD1306/SSD1315 
  *
  **/
- 
+
 // Thanks to Banbury for the main code
 // https://github.com/Banbury/pxt-calliope-oled96
 // MIT License Copyright (c) 2018 Banbury
@@ -16,20 +16,46 @@
 //
 // Changes by Ralf Krause 20240805
 // Changed initDisplay and writeChar
-// Added new flipDisplay and setBrightness 
+// Added new flipDirection and setBrightness 
 // Added new language settings (en, de)
 // https://github.com/ralf-krause/display-oled-16x8
 // MIT License Copyright (c) 2024 Ralf Krause
 
+enum OnOff {
+    //% block="on"
+    On,
+    //% block="off"
+    Off
+}
 
-//% color=#62449e icon="\uf108" block="OLED 16x8" weight=20
-namespace oled_16x8 {
+enum NormalInvert {
+    //% block="normal"
+    Normal,
+    //% block="invert"
+    Invert
+}
+
+enum UpDown {
+    //% block="up"
+    Up,
+    //% block="down"
+    Down
+}
+
+
+// color=#62449e
+// color=#8731b3
+// color=#9f4ec9
+
+//% color=#9f4ec9 icon="\uf108" block="OLED 16x8 X" weight=20
+namespace oled_16x8_X {
 
     /**
      * Reset and clear the display.
      * Should be used at the start of the program.
      */
-    //% blockId=oled_16x8_init_display weight=100
+    //% blockId=oled_16x8_init_display 
+    //% group="first block using the display" blockgap=4 weight=100
     //% block="initialize display"
     export function initDisplay(): void {
         // init display codes from Adafruit
@@ -68,15 +94,17 @@ namespace oled_16x8 {
         cmd(DISPLAY_ALL_ON_RESUME);  // set all pixels off
         cmd(NORMAL_DISPLAY);  // normal display is white on black
         cmd(DISPLAY_ON);
+
         clearDisplay();
     }
 
     /**
      * Clear the whole display.
      */
-    //% blockId=oled_16x8_clear_display weight=40
+    //% blockId=oled_16x8_clear_display 
+    //% group="write text and numbers" blockgap=4 weight=40
     //% block="clear display"
-    export function clearDisplay() {
+    export function clearDisplay(): void {
         cmd(DISPLAY_OFF);   //display off
         for (let j = 0; j < 8; j++) {
             setCursor(j, 0);
@@ -92,9 +120,10 @@ namespace oled_16x8 {
      * Clear a range of characters starting at the cursor position.
      * @param n Number of characters to delete
      */
-    //% blockId=oled_16x8_clear_range weight=30
+    //% blockId=oled_16x8_clear_range 
+    //% group="write text and numbers" blockgap=4 weight=30
     //% block="clear %n characters"
-    export function clearRange(n: number) {
+    export function clearRange(n: number): void {
         for (let i = 0; i < n; i++) {
             writeChar(' ');
         }
@@ -105,9 +134,10 @@ namespace oled_16x8 {
      */
     //% row.min=0 row.max=7 
     //% column.min=0 column.max=15
-    //% blockId=oled_16x8_set_cursor weight=50
+    //% blockId=oled_16x8_set_cursor 
+    //% group="write text and numbers" blockgap=4 weight=50
     //% block="set cursor to|row %row|and column %column"
-    export function setCursor(row: number, column: number) {
+    export function setCursor(row: number, column: number): void {
         let r = row;
         let c = column;
         if (row < 0) { r = 0 }
@@ -123,11 +153,11 @@ namespace oled_16x8 {
     /**
      * Write a single character to the display.
      */
-    function writeChar(c: string) {
+    function writeChar(c: string): void {
         let i = c.charCodeAt(0);
-        if (32 <= i && i <=127) {
+        if (32 <= i && i <= 127) {
             writeCustomChar(basicChar[i - 32]); // printable ASCII
-        } else { 
+        } else {
             switch (i) {
                 //use this for multilingual characters
                 case 196: writeCustomChar(extendedChar[0]); break; //Ä
@@ -147,9 +177,10 @@ namespace oled_16x8 {
     /**
      * Write a string to the display starting at the cursor position.
      */
-    //% blockId=oled_16x8_write_string weight=80
+    //% blockId=oled_16x8_write_string  
+    //% group="write text and numbers" blockgap=4 weight=90
     //% block="write text %s to the display"
-    export function writeString(s: string) {
+    export function writeString(s: string): void {
         for (let c of s) {
             writeChar(c);
         }
@@ -158,95 +189,79 @@ namespace oled_16x8 {
     /**
      * Write a number to the display at the current cursor position.
      */
-    //% blockId=oled_16x8_write_number weight=90
+    //% blockId=oled_16x8_write_number  
+    //% group="write text and numbers" blockgap=4 weight=80
     //% block="write number %n to the display"
-    export function writeNumber(n: number) {
+    export function writeNumber(n: number): void {
         writeString("" + n)
     }
 
     /**
-     * Set display to white letters on black background.
-     */
-    //% blockId=oled_16x8_normal_display advanced=true weight=60
-    //% block="white on black"
-    export function normalDisplay() {
-        cmd(NORMAL_DISPLAY);
-    }
-
-    /**
-     * Invert display to black letters on white background.
-     */
-    //% blockId=oled_16x8_invert_display advanced=true weight=50
-    //% block="black on white"
-    export function invertDisplay() {
-        cmd(INVERT_DISPLAY);
-    }
-
-    /**
-     * Flip the display content upside down.
-     */
-    //% blockId=oled_16x8_flip_screen advanced=true weight=70
-    //% block="flip display"
-    export function flipDisplay() {
-        cmd(DISPLAY_OFF);
-        if (flipped) {
-            cmd(COM_SCAN_DEC);
-            cmd(0xA1);  //Set Segment Re-Map
-            flipped = false;
-        } else {
-            cmd(COM_SCAN_INC);
-            cmd(0xA0);  //Set Segment Re-Map
-            flipped = true;
-        }
-        cmd(DISPLAY_ON);
-    }
-
-    /**
-     * Set the brightness of the display. 
-     * @param brightness Values range from 0 to 255, eg: 200
-     */
-    //% blockId=oled96_set_brightness advanced=true weight=80
-    //% brightness.min=0 brightness.max=255
-    //% block="set brightness to %brightness"
-    export function setBrightness(brightness: number) {
-        let b = brightness
-        if (b < 0) {b = 0;}
-        if (b > 255) {b = 255;}
-        cmd(SET_CONTRAST);
-        cmd(b);
-    }
-    
-    /**
      * Turn the display on and off.
-     * @param mode Value on and off
      */
-    //% blockId=oled_16x8_turn_off advanced=true weight=90
+    //% blockId=oled_16x8_turn_onoff 
+    //% group="display settings" advanced=true weight=90
+    //% @param mode 
     //% block="turn display %mode"
-    //% mode.shadow="OnOff"
-    turnOnOff(mode: OnOff) {
-        if (mode = OnOff.On) {
+    export function turnOnOffDisplay(mode: OnOff): void {
+        if (mode == OnOff.On) {
             cmd(DISPLAY_ON);
         } else {
             cmd(DISPLAY_OFF);
         }
     }
 
-    /**
-     * Turn off the display.
-     */
-    //% blockId=oled_16x8_turn_off advanced=true weight=94
-    //% block="turn display off"
-    export function turnOff() {
+    //% blockId=oled_16x8_set_displaymode 
+    //% group="display settings" advanced=true weight=80
+    //% @param mode 
+    //% block="set displaymode %mode"
+    export function setDisplaymode(mode: NormalInvert): void {
         cmd(DISPLAY_OFF);
+        basic.pause(100);
+        if (mode == NormalInvert.Normal) {
+            oled_16x8_X.cmd(NORMAL_DISPLAY);
+        } else {
+            oled_16x8_X.cmd(INVERT_DISPLAY);
+        }
+        basic.pause(100);
+        cmd(DISPLAY_ON);
     }
 
     /**
-     * Turn on the display.
+     * Flip the display direction upside down.
      */
-    //% blockId=oled_16x8_turn_on advanced=true weight=95
-    //% block="turn display on"
-    export function turnOn() {
-        cmd(DISPLAY_ON);
+    //% blockId=oled_16x8_flip_direction 
+    //% group="display settings" advanced=true weight=70
+    //% @param mode 
+    //% block="flip direction %mode"
+    export function flipDirection(mode: UpDown): void {
+        cmd(DISPLAY_OFF);
+        basic.pause(100);
+        if (mode == UpDown.Up) {
+            cmd(COM_SCAN_DEC);
+            cmd(0xA1);  //Set Segment Re-Map
+        } else {
+            cmd(COM_SCAN_INC);
+            cmd(0xA0);  //Set Segment Re-Map
+        }
+        basic.pause(100);
+        oled_16x8_X.cmd(DISPLAY_ON);    
+    }
+
+    /**
+     * Set the brightness of the display. 
+     * @param brightness Values range from 0 to 255, eg: 200
+     */
+    //% blockId=oled96_set_brightness 
+    //% group="display settings" advanced=true blockgap=8 weight=60
+    //% brightness.min=0 brightness.max=255
+    //% block="set brightness to %brightness"
+    export function setBrightness(brightness: number): void {
+        let b = brightness
+        if (b < 0) { b = 0; }
+        if (b > 255) { b = 255; }
+        cmd(SET_CONTRAST);
+        cmd(b);
     }
 
     /**
@@ -257,7 +272,8 @@ namespace oled_16x8 {
      * Ex. "\x00\xFF\x81\x81\x81\xFF\x00\x00"
      * Only use in Javascript mode! Makecode adds extra backslashes in Block mode.
      */
-    //% blockId=oled_16x8_write_custom_char advanced=true weight=10
+    //% blockId=oled_16x8_write_custom_char 
+    //% group="advanced commands" advanced=true weight=10
     //% block="write custom char %c"
     export function writeCustomChar(c: string) {
         for (let i = 0; i < 8; i++) {
@@ -269,14 +285,13 @@ namespace oled_16x8 {
      * Send a command to the display.
      * Only use this if you know what you are doing.
      * 
-     * For valid commands refer to the documentation of SSD1308/SSD1315
+     * For valid commands refer to the SSD1308/SSD1315 documentation
      * The i2c address of the display is 0x3c and unfortunately hard-coded
      */
-    //% blockId=oled96_send_command
-    //% block="send command %c|to display"
-    //% blockId=oled_16x8_send_command advanced=true weight=30
-    //% block="send command %c|to display"
-    export function cmd(c: number) {
+    //% blockId=oled_16x8_send_command
+    //% group="advanced commands" advanced=true weight=30
+    //% block="send command %c to display"
+    export function cmd(c: number): void {
         pins.i2cWriteNumber(0x3c, c, NumberFormat.UInt16BE);
     }
 
@@ -284,24 +299,15 @@ namespace oled_16x8 {
      * Write a byte to the display.
      * Could be used to directly paint to the display.
      */
-    //% blockId=oled_16x8_write_data advanced=true weight=20
-    //% block="send byte %n|to display"
-    export function writeData(n: number) {
+    //% blockId=oled_16x8_write_data
+    //% group="advanced commands" advanced=true weight=20
+    //% block="send byte %n to display"
+    export function writeData(n: number): void {
         let b = n;
         if (n < 0) { n = 0 }
         if (n > 255) { n = 255 }
 
         pins.i2cWriteNumber(0x3c, 0x4000 + b, NumberFormat.UInt16BE);
-    }
-
-
-    let flipped = false;
-
-    enum OnOff {
-        //% block="on"
-        On,
-        //% block="off"
-        Off
     }
 
     const DISPLAY_OFF = 0xAE;
@@ -443,4 +449,5 @@ namespace oled_16x8 {
         "\x00\xFF\x81\x81\x81\xFF\x00\x00"  // other
     ];
 
-}
+} // end namespace oled_16x8
+
