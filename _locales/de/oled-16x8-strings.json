@@ -8,7 +8,7 @@
   "oled_16x8.clearDisplay|block": "lösche Display",
   "oled_16x8.clearRange|block": "lösche %n Zeichen",
   "oled_16x8.cmd|block": "sende Befehl %c zum Display",
-  "oled_16x8.flipDirection|block": "flip direction %mode",
+  "oled_16x8.flipDirection|block": "drehe Display %mode",
   "oled_16x8.initDisplay|block": "initialisiere Display",
   "oled_16x8.setBrightness|block": "setze Helligkeit auf %brightness",
   "oled_16x8.setCursor|block": "setze Cursor auf|Zeile %row|und Spalte %column",
