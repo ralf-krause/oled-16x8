@@ -29,9 +29,9 @@ enum OnOff {
 }
 
 enum NormalInvert {
-    //% block="normal"
+    //% block="white on black"
     Normal,
-    //% block="invert"
+    //% block="black on white"
     Invert
 }
 
@@ -214,7 +214,7 @@ namespace oled_16x8 {
     //% blockId=oled_16x8_set_displaymode 
     //% group="display settings" advanced=true weight=80
     //% @param mode 
-    //% block="set displaymode %mode"
+    //% block="set mode to %mode"
     export function setDisplaymode(mode: NormalInvert): void {
         cmd(DISPLAY_OFF);
         basic.pause(100);
