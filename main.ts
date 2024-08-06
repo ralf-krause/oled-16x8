@@ -219,9 +219,9 @@ namespace oled_16x8 {
         cmd(DISPLAY_OFF);
         basic.pause(100);
         if (mode == NormalInvert.Normal) {
-            oled_16x8_X.cmd(NORMAL_DISPLAY);
+            cmd(NORMAL_DISPLAY);
         } else {
-            oled_16x8_X.cmd(INVERT_DISPLAY);
+            cmd(INVERT_DISPLAY);
         }
         basic.pause(100);
         cmd(DISPLAY_ON);
@@ -245,7 +245,7 @@ namespace oled_16x8 {
             cmd(0xA0);  //Set Segment Re-Map
         }
         basic.pause(100);
-        oled_16x8_X.cmd(DISPLAY_ON);    
+        cmd(DISPLAY_ON);    
     }
 
     /**
