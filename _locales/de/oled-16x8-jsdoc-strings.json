@@ -3,8 +3,8 @@
   "oled_16x8.clearDisplay": "Lösche das ganze Display.",
   "oled_16x8.clearRange": "Lösche einen Bereich von Zeichen, beginnend an der Cursorposition.",
   "oled_16x8.clearRange|param|n": "Anzahl von Zeichen zum Löschen",
-  "oled_16x8.cmd": "Sende einen Befehl zum Display.\nVerwende dies nur, wenn du weißt, was du tust.
-  "oled_16x8.flipDirection": "Kehre das Display um, mit dem Kopf nach unten.",
+  "oled_16x8.cmd": "Sende einen Befehl zum Display.\nVerwende dies nur, wenn du weißt, was du tust."
+  "oled_16x8.flipDirection": "Drehe das Display um, mit dem Kopf nach unten.",
   "oled_16x8.initDisplay": "Initialisieren, Zurücksetzen und Löschen des Displays.\nDies sollte beim Start des Programms ausgeführt werden.",
   "oled_16x8.setBrightness": "Ändere die Helligkeit des Displays.",
   "oled_16x8.setBrightness|param|brightness": "Werte im Bereich von 0 bis 255, eg: 200",
