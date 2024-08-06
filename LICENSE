@@ -1,24 +1,25 @@
 MIT License
 
-Copyright (c) 2018-2024 Banbury, Ingo Hoffmann, Michael Klein & Ralf Krause
+Copyright (c) 2018-2024 Banbury, Ingo Hoffmann, Michael Klein and Ralf Krause
 
-// Original code from Banbury. Thanks for the great work!
-// https://github.com/Banbury/pxt-calliope-oled96 
-// MIT License Copyright (c) 2018 Banbury
-// Thanks to SuperEugen for ExtendedChar. That saved a lot of work!
-// https://github.com/SuperEugen/pxt-calliope-grove-ssd1327/
-// MIT License Copyright (c) 2018 Ingo Hoffmann
-//
-// Thanks to changes and German translation
-// MIT License Copyright (c) 2019 Michael Klein
-//
-// Changes from Ralf Krause 20240805
-// init display codes from Adafruit
-// http://www.adafruit.com/datasheets/UG-2864HSWEG01.pdf Chapter 4.4
-// Rewrite initDisplay and writeChar
-// Added flipDisplay and setBrightness
-// Added langage settings (en, de)
-// MIT License Copyright (c) 2024 Ralf Krause
+* Original code from Banbury. Thanks for the great work!
+  https://github.com/Banbury/pxt-calliope-oled96 
+  MIT License Copyright (c) 2018 Banbury
+
+* Thanks to SuperEugen for ExtendedChar. That saved a lot of work!
+  https://github.com/SuperEugen/pxt-calliope-grove-ssd1327/
+  MIT License Copyright (c) 2018 Ingo Hoffmann
+
+* Thanks to changes and German translation
+  MIT License Copyright (c) 2019 Michael Klein
+
+* Changes from Ralf Krause 20240805
+  init display codes from Adafruit
+  http://www.adafruit.com/datasheets/UG-2864HSWEG01.pdf Chapter 4.4
+  Rewrite initDisplay and writeChar
+  Added flipDisplay and setBrightness
+  Added langage settings (en, de)
+  MIT License Copyright (c) 2024 Ralf Krause
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
