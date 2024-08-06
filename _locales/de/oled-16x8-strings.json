@@ -12,7 +12,7 @@
   "oled_16x8.initDisplay|block": "initialisiere Display",
   "oled_16x8.setBrightness|block": "setze Helligkeit auf %brightness",
   "oled_16x8.setCursor|block": "setze Cursor auf|Zeile %row|und Spalte %column",
-  "oled_16x8.setDisplaymode|block": "setze Modus auf %mode",
+  "oled_16x8.setDisplaymode|block": "setze Modus %mode",
   "oled_16x8.turnOnOffDisplay|block": "schalte Display %mode",
   "oled_16x8.writeCustomChar|block": "schreibe eigenes Zeichen %c",
   "oled_16x8.writeData|block": "sende Datenbyte %n zum Display",
