@@ -4,7 +4,7 @@
 
 -  Add a reference for my blocks here
 
-<img src="img/mini-screenshot-en.png" width="600">
+<img src="img/mini-screenshot-en.png" width="800">
 
 ## License
 
