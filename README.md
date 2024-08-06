@@ -20,8 +20,9 @@ Copyright (c) 2018-2024 Banbury, Ingo Hoffmann, Paul Rogalinski, Michael Klein a
   MIT License Copyright (c) 2018 Ingo Hoffmann
 
 * Thanks to Paul Rogalinski for the initdisplaycodes <br>
-  https://gist.githubusercontent.com/pulsar256/564fda3b9e8fc6b06b89/raw/4bb559d4088e42f7b4859a8533be920434818617/ssd1306_init.c <br>
-  Thanks to Michael Klein for the changes and german translation <br>
+  https://gist.githubusercontent.com/pulsar256/564fda3b9e8fc6b06b89/raw/4bb559d4088e42f7b4859a8533be920434818617/ssd1306_init.c
+  
+* Thanks to Michael Klein for the changes and german translation <br>
   https://github.com/MKleinSB/pxt-OLED-SSD1306 <br>
   MIT License Copyright (c) 2019 Michael Klein
 
