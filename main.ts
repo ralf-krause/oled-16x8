@@ -47,8 +47,8 @@ enum UpDown {
 // color=#8731b3
 // color=#9f4ec9
 
-//% color=#9f4ec9 icon="\uf108" block="OLED 16x8 X" weight=20
-namespace oled_16x8_X {
+//% color=#9f4ec9 icon="\uf108" block="OLED 16x8" weight=20
+namespace oled_16x8 {
 
     /**
      * Reset and clear the display.
