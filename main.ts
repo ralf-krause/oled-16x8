@@ -14,11 +14,13 @@
 // https://github.com/MKleinSB/pxt-OLED-SSD1306
 // MIT License Copyright (c) 2019 Michael Klein
 //
-// Changes by Ralf Krause 20240805
-// Changed initDisplay and writeChar
-// Added new flipDirection and setBrightness 
-// Added new language settings (en, de)
-// https://github.com/ralf-krause/display-oled-16x8
+// Changes from Ralf Krause 20240805
+// https://github.com/ralf-krause/oled-16x8
+// Rewrite initDisplay with the codes from Adafruit
+// http://www.adafruit.com/datasheets/UG-2864HSWEG01.pdf Chapter 4.4
+// Rewrite writeChar, turnDisplayOnOff and setDisplaymode
+// Add new flipDisplay and setBrightness
+// Add new language settings (en, de)
 // MIT License Copyright (c) 2024 Ralf Krause
 
 enum OnOff {
